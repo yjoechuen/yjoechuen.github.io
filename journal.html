@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Journal | George Yu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" style="text-decoration:none;color:inherit;">
+        <h1 class="site-title">George Yu</h1>
+      </a>
+      <p class="site-tagline">Journal of work and research</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="journal-header">
+      <h2>Journal</h2>
+      <button class="journal-add-btn" id="journal-add-btn" title="New entry">+</button>
+    </div>
+    <p style="color: var(--muted);">
+      Short essays, research notes, and video explanations for each date.
+    </p>
+
+    <section id="journal-list" class="journal-list">
+      <!-- JS will inject cards here -->
+    </section>
+
+    <section id="journal-form-section" class="journal-form" style="display:none;">
+      <h3>Draft a new entry</h3>
+      <form id="journal-form">
+        <label for="journal-date">Date</label>
+        <input type="date" id="journal-date" required />
+
+        <label for="journal-title">Title</label>
+        <input type="text" id="journal-title" placeholder="Entry title" required />
+
+        <label for="journal-summary">Summary</label>
+        <textarea id="journal-summary" rows="3" placeholder="Short summary for the list view"></textarea>
+
+        <label for="journal-video-url">Video URL</label>
+        <input
+          type="text"
+          id="journal-video-url"
+          placeholder="assets/videos/my-entry.mp4 or https://s3.amazonaws.com/bucket/video.mp4"
+        />
+        <small>
+          This site is static: for now, use paths under <code>assets/videos/</code>; later you can paste S3 URLs here.
+        </small>
+
+        <label for="journal-slug">Slug</label>
+        <input type="text" id="journal-slug" placeholder="2025-01-01-first-video-log" required />
+
+        <label for="journal-body">Body (Markdown or text)</label>
+        <textarea id="journal-body" rows="8" placeholder="Write your essay, links, etc."></textarea>
+
+        <button type="submit">Generate post snippets</button>
+      </form>
+      <small>
+        Submitting will not save to GitHub automatically. It generates JSON and HTML snippets for
+        <code>journal/posts.json</code> and <code>journal/posts/&lt;slug&gt;.html</code>.
+      </small>
+      <pre id="journal-output" style="margin-top:1rem;font-size:0.8rem;white-space:pre-wrap;"></pre>
+    </section>
+  </main>
+
+  <script src="assets/js/journal.js"></script>
+</body>
+</html>

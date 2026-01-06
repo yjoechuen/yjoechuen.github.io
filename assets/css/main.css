@@ -1,0 +1,203 @@
+:root {
+  --bg: #0b1020;
+  --card-bg: #13182b;
+  --accent: #6cb4ff;
+  --text: #f5f7ff;
+  --muted: #9aa1c6;
+  --radius: 16px;
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: radial-gradient(circle at top left, #1c2548 0, #050712 60%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.site-header {
+  padding-top: 1rem;
+}
+
+.site-title {
+  font-size: 1.8rem;
+  letter-spacing: 0.06em;
+}
+
+.site-tagline {
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.hero {
+  margin: 2.5rem 0 2rem;
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #151b34, #101628);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero h2 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.hero p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.grid-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.grid-card {
+  display: block;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: rgba(7, 11, 26, 0.95);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(108, 180, 255, 0.12);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.grid-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+  border-color: rgba(108, 180, 255, 0.5);
+}
+
+.grid-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+}
+
+.grid-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.projects-preview h2 {
+  margin-bottom: 0.5rem;
+}
+
+.projects-preview p {
+  color: var(--muted);
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 3rem;
+  padding: 1.5rem 0 2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Journal-specific styles */
+.journal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0 1rem;
+}
+
+.journal-add-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: #02030b;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.journal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.journal-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  background: rgba(7, 11, 26, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.journal-card-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.journal-form {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: rgba(2, 4, 16, 0.9);
+  border: 1px solid rgba(108, 180, 255, 0.3);
+}
+
+.journal-form label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.journal-form input,
+.journal-form textarea {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(3, 6, 20, 0.9);
+  color: var(--text);
+  font-family: inherit;
+}
+
+.journal-form small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  font-size: 0.78rem;
+}
+
+.journal-form button[type="submit"] {
+  border-radius: 999px;
+  padding: 0.55rem 1.4rem;
+  border: none;
+  background: var(--accent);
+  color: #02030b;
+  font-weight: 600;
+  cursor: pointer;
+}
