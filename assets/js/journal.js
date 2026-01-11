@@ -46,8 +46,18 @@ function setupJournalForm() {
   const section = document.getElementById("journal-form-section");
   const form = document.getElementById("journal-form");
   const output = document.getElementById("journal-output");
+  const dateInput = document.getElementById("journal-date");
 
   if (!btn || !section || !form || !output) return;
+
+  // Auto-set today's date in the date field
+  if (dateInput && !dateInput.value) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    dateInput.value = `${yyyy}-${mm}-${dd}`; // input[type=date] format
+  }
 
   btn.addEventListener("click", () => {
     section.style.display = section.style.display === "none" ? "block" : "none";
