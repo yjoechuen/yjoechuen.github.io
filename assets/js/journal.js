@@ -70,13 +70,20 @@ function setupJournalForm() {
     const title = document.getElementById("journal-title").value.trim();
     const summary = document.getElementById("journal-summary").value.trim();
     const videoUrl = document.getElementById("journal-video-url").value.trim();
-    const slug = document.getElementById("journal-slug").value.trim();
     const body = document.getElementById("journal-body").value;
 
-    if (!date || !title || !slug) {
-      alert("Date, title, and slug are required.");
+    if (!date || !title) {
+      alert("Date and title are required.");
       return;
     }
+
+    const baseSlug = `${date}-${title}`
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")   // non-alphanumerics -> "-"
+      .replace(/^-+|-+$/g, "");
+
+    const slug = baseSlug || `entry-${Date.now()}`;
 
     const postJson = {
       id: slug,
